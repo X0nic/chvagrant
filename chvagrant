@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+echo "Switching from vagrant v$1 to v$2"
+
+mv /Applications/Vagrant /Applications/Vagrant-$1 && \
+  mv ~/.vagrant.d ~/.vagrant.d-$1 && \
+  mv ~/.berkshelf ~/.berkshelf-$1 && \
+  mv /Applications/Vagrant-$2 /Applications/Vagrant && \
+  mv ~/.vagrant.d-$2 ~/.vagrant.d && \
+  mv ~/.berkshelf-$2 ~/.berkshelf
+
+echo "Switched from vagrant v$1 to v$2"
