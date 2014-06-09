@@ -4,6 +4,9 @@ current_version=$(vagrant -v | awk '{print $2}')
 
 echo "Switching from vagrant v$current_version to v$1"
 
+vagrant_path="/Applications/Vagrant-$1"
+
+if [[ -d $vagrant_path ]]; then
 mv /Applications/Vagrant /Applications/Vagrant-$current_version && \
   mv ~/.vagrant.d ~/.vagrant.d-$current_version && \
   mv ~/.berkshelf ~/.berkshelf-$current_version && \
@@ -11,4 +14,7 @@ mv /Applications/Vagrant /Applications/Vagrant-$current_version && \
   mv ~/.vagrant.d-$1 ~/.vagrant.d && \
   mv ~/.berkshelf-$1 ~/.berkshelf
 
-echo "Switched from vagrant v$current_version to v$1"
+  echo "Switched from vagrant v$current_version to v$1"
+else
+  echo "Could not find vagrant $1"
+fi
