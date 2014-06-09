@@ -6,7 +6,7 @@ echo "Switching from vagrant v$current_version to v$1"
 
 vagrant_path="/Applications/Vagrant-$1"
 
-if [[ -d $vagrant_path ]]; then
+if [ -d "$vagrant_path" ]; then
 mv /Applications/Vagrant /Applications/Vagrant-$current_version && \
   mv ~/.vagrant.d ~/.vagrant.d-$current_version && \
   mv ~/.berkshelf ~/.berkshelf-$current_version && \
